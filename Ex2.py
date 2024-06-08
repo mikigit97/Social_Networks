@@ -309,10 +309,10 @@ def visualize_graph(G, communities, id_to_name):
         net.add_edge(edge[0], edge[1], value=edge[2]['weight'])
 
     # Use ForceAtlas2 algorithm for layout
-    # net.force_atlas_2based()
-    #
-    # # Show the network
-    # net.show('graph.html')
+    net.force_atlas_2based()
+
+    # Show the network
+    net.show('graph_only_politicians.html')
 # def visualize_graph(G, communities, separation_factor=10):
 #     """
 #     Visualize a directed and weighted NetworkX graph with nodes colored by community.
@@ -402,7 +402,7 @@ if __name__ == "__main__":
     files_path = 'C:/Users/User/OneDrive/Data engineering/Year 3/Semester 2/Social networks/Ex 2/twitter_data_sna_ex2'  # Update with the correct path
     start_date = '2019-03-15'
     end_date = '2019-04-15'
-    non_parliamentarians_nodes = 20  # Example number of additional nodes to include
+    non_parliamentarians_nodes = 0  # Example number of additional nodes to include
     edge_dict = construct_heb_edges(files_path, start_date, end_date, non_parliamentarians_nodes)
     G = construct_heb_network(edge_dict)
     result_gn = community_detector('girvin_newman', G, edge_selector_optimizer_degree)
